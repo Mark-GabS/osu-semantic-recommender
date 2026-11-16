@@ -1,0 +1,92 @@
+[
+ {
+  "prompt": "quero mapas de 5.2★ com jumps técnicos, rock japonês energético e poucas streams longas para treinar aim",
+  "seconds": 26.3,
+  "returned": 10,
+  "numeric": 1.0,
+  "stream_limit": 1.0,
+  "genre": 1.0,
+  "skills_any": 1.0,
+  "relaxed": 0.0,
+  "top3": [
+   "Kano - Sukisuki Zecchoushou [Expert]",
+   "CHiCO with HoneyWorks - Kessen Spirit (TV Size) [semfi's Expert]",
+   "tephe - Neppa feat. Butter [Fufla's Summer]"
+  ]
+ },
+ {
+  "prompt": "deathstreams de metal acima de 6 estrelas",
+  "seconds": 33.5,
+  "returned": 10,
+  "numeric": 1.0,
+  "stream_limit": 1.0,
+  "genre": 1.0,
+  "skills_any": 1.0,
+  "relaxed": 0.0,
+  "top3": [
+   "Dragon Guardian - Dragonvarius [Noble Phantasm]",
+   "All That Remains - This Calling [Independencia ou Morte]",
+   "BABYMETAL - Arkadia [For Your Dream]"
+  ]
+ },
+ {
+  "prompt": "mapas de anime entre 4 e 5 estrelas com AR 9, sem streams",
+  "seconds": 29.4,
+  "returned": 10,
+  "numeric": 1.0,
+  "stream_limit": 1.0,
+  "genre": 1.0,
+  "skills_any": null,
+  "relaxed": 0.0,
+  "top3": [
+   "Abe Mao - Ding-dong (TV Size) [Insane]",
+   "ReoNa - Amore (TV Size) [I Yearn for a Tomorrow with You]",
+   "Watarirouka Hashiritai - Kanpeki Gu~ no Ne (TV Size) [Insane]"
+  ]
+ },
+ {
+  "prompt": "eletrônica de 180 bpm com streams para treinar velocidade, até 5.5 estrelas",
+  "seconds": 33.3,
+  "returned": 10,
+  "numeric": 1.0,
+  "stream_limit": 1.0,
+  "genre": 1.0,
+  "skills_any": 0.9,
+  "relaxed": 0.0,
+  "top3": [
+   "Feint - Tower Of Heaven (You Are Slaves) (Cut Ver.) [Extra]",
+   "bilbordy - slishkom pozdno [insane]",
+   "Plum - R [Wavewy's Extra]"
+  ]
+ },
+ {
+  "prompt": "j-pop alegre com jumps, 4.5 estrelas",
+  "seconds": 20.4,
+  "returned": 10,
+  "numeric": 1.0,
+  "stream_limit": 1.0,
+  "genre": 1.0,
+  "skills_any": 0.8,
+  "relaxed": 0.0,
+  "top3": [
+   "Tennoji Rina (CV: Tanaka Chiemi) - Tsunagaru Connect [Insane]",
+   "PUFFY AMIYUMI - TEEN TITANS THEME (JAPANESE VER.) (TV SIZE & NIGHTCORE MIX) [snyc's Insane]",
+   "Amatsuki - DORAEMON (CUT VER.) [Another]"
+  ]
+ },
+ {
+  "prompt": "mapas técnicos de música clássica entre 4 e 6 estrelas",
+  "seconds": 32.0,
+  "returned": 10,
+  "numeric": 1.0,
+  "stream_limit": 1.0,
+  "genre": 1.0,
+  "skills_any": 1.0,
+  "relaxed": 0.0,
+  "top3": [
+   "Marcin, Tim Henson - Classical Dragon [Collab Insane]",
+   "Rigel Theatre - Maple Town Memories [Insane]",
+   "Brian Tyler - Formula 1 Theme [ratokkoy's Insane]"
+  ]
+ }
+]

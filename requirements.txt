@@ -1,0 +1,27 @@
+# Core
+pydantic>=2.7
+pydantic-settings>=2.3
+python-dotenv>=1.0
+numpy>=1.26
+
+# LLM (Structured Outputs)
+anthropic>=0.70
+
+# HTTP (catálogo do osu!, .osu e .osz)
+httpx>=0.27
+
+# Vector store
+chromadb>=0.5
+
+# CLI / UX
+typer>=0.12
+rich>=13.7
+
+# Star rating oficial (opcional: há fallback aproximado se o wheel não instalar)
+rosu-pp-py>=1.0
+
+# Embeddings neurais multilíngues (opcional; EMBEDDING_BACKEND=fastembed)
+# fastembed>=0.3
+
+# Dev
+pytest>=8.0

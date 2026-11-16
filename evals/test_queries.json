@@ -1,0 +1,552 @@
+{
+  "description": "Pedidos difíceis (PT/EN, negações, faixas, gênero+mecânica) sobre data/sample_beatmaps. 'expected' avalia o planner (campo a campo); 'relevance' define quais mapas do índice contam como relevantes (todas as condições precisam valer); 'must_top3' são respostas-ouro. Queries com held_out=true usam paráfrases/gírias escritas DEPOIS do planner heurístico, para medir generalização (o heurístico foi desenvolvido junto com as demais).",
+  "tolerances": {
+    "star_rating": 0.15,
+    "bpm": 5,
+    "ar": 0.2,
+    "cs": 0.2,
+    "od": 0.3,
+    "length_s": 30
+  },
+  "queries": [
+    {
+      "id": "q01_main",
+      "prompt": "quero mapas de 5.2★ com jumps técnicos, rock japonês energético e poucas streams longas para treinar aim",
+      "expected": {
+        "star_rating": {
+          "min": 4.9,
+          "max": 5.5
+        },
+        "max_stream_len_lte": 12,
+        "skills_include": [
+          "jumps",
+          "tech"
+        ],
+        "avoid_include": [
+          "long_streams"
+        ],
+        "genres_include": [
+          "jrock"
+        ],
+        "moods_include": [
+          "energetic"
+        ],
+        "training_goal": "aim"
+      },
+      "relevance": {
+        "star_rating": [
+          4.85,
+          5.6
+        ],
+        "skills_any": [
+          "jumps"
+        ],
+        "max_stream_len_lte": 12,
+        "genres_any": [
+          "jrock",
+          "rock"
+        ]
+      },
+      "must_top3": [
+        "Crimson Overdrive"
+      ]
+    },
+    {
+      "id": "q02_deathstream_metal",
+      "prompt": "deathstreams de metal acima de 7 estrelas",
+      "expected": {
+        "star_rating": {
+          "min": 7.0,
+          "max": null
+        },
+        "skills_include": [
+          "long_streams"
+        ],
+        "genres_include": [
+          "metal"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          7.0,
+          99
+        ],
+        "skills_any": [
+          "long_streams"
+        ]
+      },
+      "must_top3": [
+        "Thunder Shrine"
+      ]
+    },
+    {
+      "id": "q03_calm_piano",
+      "prompt": "mapas calmos de piano até 4 estrelas pra relaxar",
+      "expected": {
+        "star_rating": {
+          "min": null,
+          "max": 4.0
+        },
+        "genres_include": [
+          "piano"
+        ],
+        "moods_include": [
+          "calm"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          0,
+          4.0
+        ],
+        "genres_any": [
+          "piano",
+          "classical"
+        ]
+      },
+      "must_top3": [
+        "Glass Lullaby"
+      ]
+    },
+    {
+      "id": "q04_electronic_stamina",
+      "prompt": "streams longas de música eletrônica, 220 bpm, para treinar stamina",
+      "expected": {
+        "bpm": {
+          "min": 215,
+          "max": 225
+        },
+        "skills_include": [
+          "long_streams"
+        ],
+        "genres_include": [
+          "electronic"
+        ],
+        "training_goal": "stamina"
+      },
+      "relevance": {
+        "bpm": [
+          205,
+          235
+        ],
+        "skills_any": [
+          "stamina",
+          "long_streams"
+        ]
+      },
+      "must_top3": [
+        "Hyperion Gate"
+      ]
+    },
+    {
+      "id": "q05_big_jumps_high_ar",
+      "prompt": "jumps grandes com AR alto, acima de 8 estrelas",
+      "expected": {
+        "star_rating": {
+          "min": 8.0,
+          "max": null
+        },
+        "ar": {
+          "min": 9.6,
+          "max": null
+        },
+        "skills_include": [
+          "jumps",
+          "high_ar"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          8.0,
+          99
+        ],
+        "skills_any": [
+          "jumps"
+        ]
+      },
+      "must_top3": [
+        "Blazing Requiem"
+      ]
+    },
+    {
+      "id": "q06_flow_no_streams",
+      "prompt": "flow aim tranquilo, entre 3 e 4.5 estrelas, sem streams",
+      "expected": {
+        "star_rating": {
+          "min": 3.0,
+          "max": 4.5
+        },
+        "max_stream_len_lte": 6,
+        "skills_include": [
+          "flow_aim"
+        ],
+        "avoid_include": [
+          "streams"
+        ],
+        "moods_include": [
+          "calm"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          3.0,
+          4.5
+        ],
+        "skills_any": [
+          "flow_aim"
+        ],
+        "max_stream_len_lte": 6
+      },
+      "must_top3": [
+        "Sakura Drift"
+      ]
+    },
+    {
+      "id": "q07_en_slider_tech",
+      "prompt": "technical slider maps with lots of SV changes, below 4 stars",
+      "expected": {
+        "star_rating": {
+          "min": null,
+          "max": 4.0
+        },
+        "skills_include": [
+          "tech",
+          "sliders"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          0,
+          4.0
+        ],
+        "skills_all": [
+          "tech"
+        ]
+      },
+      "must_top3": [
+        "Glass Lullaby"
+      ]
+    },
+    {
+      "id": "q08_jpop_happy_jumps",
+      "prompt": "10 mapas de j-pop alegre com jumps entre 5 e 5.5 estrelas",
+      "expected": {
+        "star_rating": {
+          "min": 5.0,
+          "max": 5.5
+        },
+        "skills_include": [
+          "jumps"
+        ],
+        "genres_include": [
+          "jpop"
+        ],
+        "moods_include": [
+          "happy"
+        ],
+        "limit": 10
+      },
+      "relevance": {
+        "star_rating": [
+          5.0,
+          5.5
+        ],
+        "skills_any": [
+          "jumps"
+        ],
+        "genres_any": [
+          "jpop"
+        ]
+      },
+      "must_top3": [
+        "Starlit Parade"
+      ]
+    },
+    {
+      "id": "q09_anime_bursts",
+      "prompt": "anime openings energéticos com bursts curtos e algumas streams, ~6 estrelas",
+      "expected": {
+        "star_rating": {
+          "min": 5.7,
+          "max": 6.3
+        },
+        "skills_include": [
+          "bursts"
+        ],
+        "genres_include": [
+          "anime"
+        ],
+        "moods_include": [
+          "energetic"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          5.6,
+          6.4
+        ],
+        "skills_any": [
+          "bursts",
+          "streams"
+        ]
+      },
+      "must_top3": [
+        "Velvet Comet"
+      ]
+    },
+    {
+      "id": "q10_classical_tech",
+      "prompt": "algo técnico de música clássica, com ritmos estranhos",
+      "expected": {
+        "skills_include": [
+          "tech"
+        ],
+        "genres_include": [
+          "classical"
+        ]
+      },
+      "relevance": {
+        "skills_all": [
+          "tech"
+        ],
+        "genres_any": [
+          "classical",
+          "piano"
+        ]
+      },
+      "must_top3": [
+        "Paper Moon Waltz"
+      ]
+    },
+    {
+      "id": "q11_en_glitch",
+      "prompt": "electronic glitch maps with technical jumps around 6.5 stars",
+      "expected": {
+        "star_rating": {
+          "min": 6.2,
+          "max": 6.8
+        },
+        "skills_include": [
+          "jumps",
+          "tech"
+        ],
+        "genres_include": [
+          "electronic"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          6.1,
+          6.9
+        ],
+        "skills_all": [
+          "jumps",
+          "tech"
+        ]
+      },
+      "must_top3": [
+        "Static Bloom"
+      ]
+    },
+    {
+      "id": "q12_lofi_warmup",
+      "prompt": "mapa fácil de lofi para aquecer, abaixo de 3 estrelas",
+      "expected": {
+        "star_rating": {
+          "min": null,
+          "max": 3.0
+        },
+        "genres_include": [
+          "lofi"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          0,
+          3.0
+        ]
+      },
+      "must_top3": [
+        "Lo-fi Lantern"
+      ]
+    },
+    {
+      "id": "q13_jrock_speed",
+      "prompt": "quero speed: streams de 210 bpm em j-rock",
+      "expected": {
+        "bpm": {
+          "min": 205,
+          "max": 215
+        },
+        "skills_include": [
+          "streams"
+        ],
+        "genres_include": [
+          "jrock"
+        ]
+      },
+      "relevance": {
+        "bpm": [
+          200,
+          220
+        ],
+        "skills_any": [
+          "streams",
+          "speed"
+        ]
+      },
+      "must_top3": [
+        "Neon Katana"
+      ]
+    },
+    {
+      "id": "q14_negation_no_streams",
+      "prompt": "jumps de rock japonês mas nada de streams, 5 a 6 estrelas",
+      "expected": {
+        "star_rating": {
+          "min": 5.0,
+          "max": 6.0
+        },
+        "max_stream_len_lte": 6,
+        "skills_include": [
+          "jumps"
+        ],
+        "avoid_include": [
+          "streams"
+        ],
+        "genres_include": [
+          "jrock"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          5.0,
+          6.0
+        ],
+        "skills_any": [
+          "jumps"
+        ],
+        "max_stream_len_lte": 6,
+        "genres_any": [
+          "jrock",
+          "rock"
+        ]
+      },
+      "must_top3": [
+        "Ember Highway",
+        "Iron Petal",
+        "Crimson Overdrive"
+      ]
+    },
+    {
+      "id": "h01_slang_aim",
+      "held_out": true,
+      "prompt": "quero algo pra treinar mira, nível intermediário tipo 5 estrelas e pouco, nada muito streamado, de banda japonesa",
+      "expected": {
+        "star_rating": {
+          "min": 5.0,
+          "max": 5.6
+        },
+        "max_stream_len_lte": 12,
+        "skills_include": [
+          "jumps"
+        ],
+        "genres_include": [
+          "jrock"
+        ],
+        "training_goal": "aim"
+      },
+      "relevance": {
+        "star_rating": [
+          5.0,
+          5.6
+        ],
+        "skills_any": [
+          "jumps"
+        ],
+        "max_stream_len_lte": 12,
+        "genres_any": [
+          "jrock",
+          "rock"
+        ]
+      },
+      "must_top3": [
+        "Crimson Overdrive",
+        "Iron Petal",
+        "Ember Highway"
+      ]
+    },
+    {
+      "id": "h02_en_wind_down",
+      "held_out": true,
+      "prompt": "something chill to wind down after work, nothing over 4 stars",
+      "expected": {
+        "star_rating": {
+          "min": null,
+          "max": 4.0
+        },
+        "moods_include": [
+          "calm"
+        ]
+      },
+      "relevance": {
+        "star_rating": [
+          0,
+          4.0
+        ]
+      },
+      "must_top3": [
+        "Lo-fi Lantern",
+        "Sakura Drift",
+        "Glass Lullaby"
+      ]
+    },
+    {
+      "id": "h03_heavy_fast",
+      "held_out": true,
+      "prompt": "me dá umas 8 músicas pesadas e rápidas pra testar velocidade de dedo",
+      "expected": {
+        "limit": 8,
+        "skills_include": [
+          "speed"
+        ],
+        "genres_include": [
+          "metal"
+        ]
+      },
+      "relevance": {
+        "skills_any": [
+          "speed",
+          "streams"
+        ],
+        "genres_any": [
+          "metal"
+        ]
+      },
+      "must_top3": [
+        "Thunder Shrine"
+      ]
+    },
+    {
+      "id": "h04_negated_ar",
+      "held_out": true,
+      "prompt": "mapas de vocaloid sem AR alto, quero ler com calma",
+      "expected": {
+        "genres_include": [
+          "vocaloid"
+        ],
+        "avoid_include": [
+          "high_ar"
+        ]
+      },
+      "relevance": {
+        "genres_any": [
+          "vocaloid"
+        ]
+      },
+      "must_top3": [
+        "Ocean Circuit"
+      ]
+    }
+  ]
+}

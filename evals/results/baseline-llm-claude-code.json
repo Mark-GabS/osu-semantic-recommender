@@ -1,0 +1,861 @@
+{
+ "summary": {
+  "planner": "llm",
+  "n": 18,
+  "field_accuracy": 0.9703703703703703,
+  "exact_plans": 0.8888888888888888,
+  "p@5": 0.925925925925926,
+  "recall@10": 1.0,
+  "ndcg@5": 0.9847167477704368,
+  "hit@3": 1.0,
+  "avg_plan_ms": 4960.894444444445,
+  "planner_errors": 0,
+  "dev": {
+   "n": 14,
+   "field_accuracy": 0.9761904761904762,
+   "exact_plans": 0.9285714285714286,
+   "p@5": 0.9285714285714286,
+   "recall@10": 1.0,
+   "ndcg@5": 0.9885315413068839,
+   "hit@3": 1.0,
+   "avg_plan_ms": 4578.271428571429,
+   "planner_errors": 0
+  },
+  "held_out": {
+   "n": 4,
+   "field_accuracy": 0.95,
+   "exact_plans": 0.75,
+   "p@5": 0.9166666666666666,
+   "recall@10": 1.0,
+   "ndcg@5": 0.9713649703928718,
+   "hit@3": 1.0,
+   "avg_plan_ms": 6300.075,
+   "planner_errors": 0
+  }
+ },
+ "rows": [
+  {
+   "id": "q01_main",
+   "held_out": false,
+   "prompt": "quero mapas de 5.2★ com jumps técnicos, rock japonês energético e poucas streams longas para treinar aim",
+   "planner_error": null,
+   "plan_ms": 5385.8,
+   "fields": {
+    "star_rating": true,
+    "max_stream_len_lte": true,
+    "skills_include": true,
+    "avoid_include": true,
+    "genres_include": true,
+    "moods_include": true,
+    "training_goal": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 3,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Crimson Overdrive",
+    "Ember Highway",
+    "Iron Petal"
+   ],
+   "relaxations": [
+    "removidos filtros de duração/OD/CS; SR ±0.8"
+   ],
+   "query": {
+    "star_rating": {
+     "min": 4.9,
+     "max": 5.5
+    },
+    "max_stream_len": 12,
+    "skills": [
+     "jumps",
+     "tech"
+    ],
+    "avoid_skills": [
+     "long_streams",
+     "stamina"
+    ],
+    "genres": [
+     "jrock",
+     "rock"
+    ],
+    "moods": [
+     "energetic"
+    ],
+    "semantic_query": "Energetic Japanese rock song with technical jump patterns and aim-focused mapping, few long streams",
+    "training_goal": "aim",
+    "limit": 20,
+    "collection_name": "5.2* tech jumps jrock",
+    "rationale": "5.2★ vira 4.9–5.5; jumps técnicos e treino de aim dão as skills jumps e tech; rock japonês energético define gêneros e mood; poucas streams longas limitam a stream a 12 notas e evitam long_streams e stamina.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q02_deathstream_metal",
+   "held_out": false,
+   "prompt": "deathstreams de metal acima de 7 estrelas",
+   "planner_error": null,
+   "plan_ms": 4266.8,
+   "fields": {
+    "star_rating": true,
+    "skills_include": true,
+    "genres_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 2,
+   "p@5": 0.5,
+   "recall@10": 1.0,
+   "ndcg@5": 0.9197207891481876,
+   "hit@3": true,
+   "top3": [
+    "Thunder Shrine",
+    "Blazing Requiem",
+    "Neon Katana"
+   ],
+   "relaxations": [],
+   "query": {
+    "star_rating": {
+     "min": 7.0
+    },
+    "skills": [
+     "long_streams",
+     "stamina"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "metal"
+    ],
+    "moods": [],
+    "semantic_query": "Aggressive metal song with long deathstreams and high stamina demands.",
+    "training_goal": "stamina",
+    "limit": 20,
+    "collection_name": "7*+ metal deathstreams",
+    "rationale": "\"Acima de 7 estrelas\" sets min 7 for star rating, \"deathstreams\" boosts long_streams and stamina, and the genre is metal.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q03_calm_piano",
+   "held_out": false,
+   "prompt": "mapas calmos de piano até 4 estrelas pra relaxar",
+   "planner_error": null,
+   "plan_ms": 4439.3,
+   "fields": {
+    "star_rating": true,
+    "genres_include": true,
+    "moods_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Glass Lullaby",
+    "Sakura Drift",
+    "Lo-fi Lantern"
+   ],
+   "relaxations": [],
+   "query": {
+    "star_rating": {
+     "max": 4.0
+    },
+    "skills": [],
+    "avoid_skills": [],
+    "genres": [
+     "piano"
+    ],
+    "moods": [
+     "calm"
+    ],
+    "semantic_query": "Calm relaxing piano music beatmap with gentle, easy-going relaxed gameplay.",
+    "limit": 20,
+    "collection_name": "calm piano up to 4*",
+    "rationale": "\"até 4 estrelas\" -> max 4★; piano genre and calm mood requested; no mechanical constraints given.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q04_electronic_stamina",
+   "held_out": false,
+   "prompt": "streams longas de música eletrônica, 220 bpm, para treinar stamina",
+   "planner_error": null,
+   "plan_ms": 4283.2,
+   "fields": {
+    "bpm": true,
+    "skills_include": true,
+    "genres_include": true,
+    "training_goal": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 2,
+   "p@5": 0.5,
+   "recall@10": 1.0,
+   "ndcg@5": 0.9197207891481876,
+   "hit@3": true,
+   "top3": [
+    "Hyperion Gate",
+    "Thunder Shrine",
+    "Neon Katana"
+   ],
+   "relaxations": [
+    "faixas numéricas ampliadas (SR ±0.4, BPM ±15, AR/CS ±0.5)"
+   ],
+   "query": {
+    "bpm": {
+     "min": 215.0,
+     "max": 225.0
+    },
+    "skills": [
+     "long_streams",
+     "stamina"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "electronic"
+    ],
+    "moods": [],
+    "semantic_query": "Energetic electronic music with long streams and deathstreams at 220 BPM for stamina training",
+    "training_goal": "stamina",
+    "limit": 20,
+    "collection_name": "220bpm electronic long streams stamina",
+    "rationale": "220 BPM exato vira faixa ±5; streams longas desejadas e treino de stamina geram skills long_streams e stamina; gênero eletrônico.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q05_big_jumps_high_ar",
+   "held_out": false,
+   "prompt": "jumps grandes com AR alto, acima de 8 estrelas",
+   "planner_error": null,
+   "plan_ms": 4006.6,
+   "fields": {
+    "star_rating": true,
+    "ar": false,
+    "skills_include": true
+   },
+   "field_acc": 0.6666666666666666,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Blazing Requiem",
+    "Thunder Shrine",
+    "Aurora Signal"
+   ],
+   "relaxations": [
+    "removidos filtros de duração/OD/CS; SR ±0.8"
+   ],
+   "query": {
+    "star_rating": {
+     "min": 8.0
+    },
+    "skills": [
+     "jumps",
+     "high_ar"
+    ],
+    "avoid_skills": [],
+    "genres": [],
+    "moods": [],
+    "semantic_query": "High star rating map with big wide jumps and high approach rate, demanding aim and fast reading.",
+    "limit": 20,
+    "collection_name": "8*+ big jumps high AR",
+    "rationale": "'acima de 8 estrelas' -> min 8; jumps grandes -> jumps; AR alto -> high_ar skill (no numeric AR given).",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q06_flow_no_streams",
+   "held_out": false,
+   "prompt": "flow aim tranquilo, entre 3 e 4.5 estrelas, sem streams",
+   "planner_error": null,
+   "plan_ms": 5082.1,
+   "fields": {
+    "star_rating": true,
+    "max_stream_len_lte": true,
+    "skills_include": true,
+    "avoid_include": true,
+    "moods_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 2,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Sakura Drift",
+    "Glass Lullaby",
+    "Lo-fi Lantern"
+   ],
+   "relaxations": [
+    "faixas numéricas ampliadas (SR ±0.4, BPM ±15, AR/CS ±0.5)",
+    "removidos filtros de duração/OD/CS; SR ±0.8"
+   ],
+   "query": {
+    "star_rating": {
+     "min": 3.0,
+     "max": 4.5
+    },
+    "max_stream_len": 6,
+    "skills": [
+     "flow_aim"
+    ],
+    "avoid_skills": [
+     "streams",
+     "long_streams"
+    ],
+    "genres": [],
+    "moods": [
+     "calm"
+    ],
+    "semantic_query": "Calm, relaxed song with smooth flow aim patterns and no streams",
+    "limit": 20,
+    "collection_name": "3-4.5* calm flow aim no streams",
+    "rationale": "Star range 3-4.5 as given; \"sem streams\" caps streams at 6 notes and avoids stream patterns; flow aim boosted with a calm mood.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q07_en_slider_tech",
+   "held_out": false,
+   "prompt": "technical slider maps with lots of SV changes, below 4 stars",
+   "planner_error": null,
+   "plan_ms": 3979.7,
+   "fields": {
+    "star_rating": true,
+    "skills_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Glass Lullaby",
+    "Lo-fi Lantern",
+    "Sakura Drift"
+   ],
+   "relaxations": [],
+   "query": {
+    "star_rating": {
+     "max": 4.0
+    },
+    "skills": [
+     "tech",
+     "sliders"
+    ],
+    "avoid_skills": [],
+    "genres": [],
+    "moods": [],
+    "semantic_query": "Technical slider-heavy osu! map with lots of slider velocity (SV) changes and intricate slider shapes.",
+    "limit": 20,
+    "collection_name": "<4* tech sliders SV",
+    "rationale": "\"Below 4 stars\" sets max star rating 4; technical + sliders/SV changes map to tech and sliders skills, no other constraints given.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q08_jpop_happy_jumps",
+   "held_out": false,
+   "prompt": "10 mapas de j-pop alegre com jumps entre 5 e 5.5 estrelas",
+   "planner_error": null,
+   "plan_ms": 4166.6,
+   "fields": {
+    "star_rating": true,
+    "skills_include": true,
+    "genres_include": true,
+    "moods_include": true,
+    "limit": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Starlit Parade",
+    "Ember Highway",
+    "Iron Petal"
+   ],
+   "relaxations": [
+    "faixas numéricas ampliadas (SR ±0.4, BPM ±15, AR/CS ±0.5)"
+   ],
+   "query": {
+    "star_rating": {
+     "min": 5.0,
+     "max": 5.5
+    },
+    "skills": [
+     "jumps"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "jpop"
+    ],
+    "moods": [
+     "happy"
+    ],
+    "semantic_query": "Happy upbeat cheerful j-pop song beatmap with jump-focused aim patterns",
+    "limit": 10,
+    "collection_name": "5-5.5* happy jpop jumps",
+    "rationale": "User asked for 10 happy j-pop maps with jumps between 5 and 5.5 stars; the range is used as given and no other constraints are added.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q09_anime_bursts",
+   "held_out": false,
+   "prompt": "anime openings energéticos com bursts curtos e algumas streams, ~6 estrelas",
+   "planner_error": null,
+   "plan_ms": 5670.6,
+   "fields": {
+    "star_rating": true,
+    "skills_include": true,
+    "genres_include": true,
+    "moods_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 3,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Velvet Comet",
+    "Ocean Circuit",
+    "Kitsune Rush"
+   ],
+   "relaxations": [
+    "faixas numéricas ampliadas (SR ±0.4, BPM ±15, AR/CS ±0.5)"
+   ],
+   "query": {
+    "star_rating": {
+     "min": 5.7,
+     "max": 6.3
+    },
+    "skills": [
+     "bursts",
+     "streams"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "anime"
+    ],
+    "moods": [
+     "energetic"
+    ],
+    "semantic_query": "Energetic anime opening songs with short bursts and some streams",
+    "limit": 20,
+    "collection_name": "6* anime OP bursts streams",
+    "rationale": "~6 stars gives 5.7-6.3; anime openings with an energetic mood; the map should have short bursts and some streams, so bursts and streams are boosted without hard stream limits.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q10_classical_tech",
+   "held_out": false,
+   "prompt": "algo técnico de música clássica, com ritmos estranhos",
+   "planner_error": null,
+   "plan_ms": 3835.6,
+   "fields": {
+    "skills_include": true,
+    "genres_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 2,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Paper Moon Waltz",
+    "Glass Lullaby",
+    "Static Bloom"
+   ],
+   "relaxations": [],
+   "query": {
+    "skills": [
+     "tech"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "classical"
+    ],
+    "moods": [],
+    "semantic_query": "Technical classical music beatmap with irregular, unusual rhythms and complex patterns.",
+    "limit": 20,
+    "collection_name": "tech classical odd rhythms",
+    "rationale": "User asked for technical classical maps with odd rhythms; no numeric constraints were given, so only genre and the tech skill are set.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q11_en_glitch",
+   "held_out": false,
+   "prompt": "electronic glitch maps with technical jumps around 6.5 stars",
+   "planner_error": null,
+   "plan_ms": 4308.0,
+   "fields": {
+    "star_rating": true,
+    "skills_include": true,
+    "genres_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Static Bloom",
+    "Hyperion Gate",
+    "Ocean Circuit"
+   ],
+   "relaxations": [
+    "faixas numéricas ampliadas (SR ±0.4, BPM ±15, AR/CS ±0.5)"
+   ],
+   "query": {
+    "star_rating": {
+     "min": 6.2,
+     "max": 6.8
+    },
+    "skills": [
+     "tech",
+     "jumps"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "electronic"
+    ],
+    "moods": [],
+    "semantic_query": "Electronic glitch music with technical jump patterns, tech aim with irregular angles and rhythm changes",
+    "limit": 20,
+    "collection_name": "6.5* tech jumps glitch electronic",
+    "rationale": "I set the star range to 6.5 ± 0.3 because the request said \"around 6.5\". I mapped \"electronic glitch\" to the electronic genre and used \"technical jumps\" to boost the tech and jumps skills.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q12_lofi_warmup",
+   "held_out": false,
+   "prompt": "mapa fácil de lofi para aquecer, abaixo de 3 estrelas",
+   "planner_error": null,
+   "plan_ms": 5556.8,
+   "fields": {
+    "star_rating": true,
+    "genres_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Lo-fi Lantern",
+    "Glass Lullaby",
+    "Sakura Drift"
+   ],
+   "relaxations": [
+    "removidos filtros de duração/OD/CS; SR ±0.8"
+   ],
+   "query": {
+    "star_rating": {
+     "max": 3.0
+    },
+    "skills": [],
+    "avoid_skills": [],
+    "genres": [
+     "lofi"
+    ],
+    "moods": [],
+    "semantic_query": "Easy relaxed lofi beatmap for warming up, simple low-difficulty patterns",
+    "limit": 20,
+    "collection_name": "<3* lofi warmup",
+    "rationale": "\"Abaixo de 3 estrelas\" vira star_rating max 3; lofi é o gênero e o aquecimento entra só no sentido da busca, sem restrições mecânicas extras.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q13_jrock_speed",
+   "held_out": false,
+   "prompt": "quero speed: streams de 210 bpm em j-rock",
+   "planner_error": null,
+   "plan_ms": 4174.7,
+   "fields": {
+    "bpm": true,
+    "skills_include": true,
+    "genres_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 2,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Neon Katana",
+    "Hyperion Gate",
+    "Blazing Requiem"
+   ],
+   "relaxations": [
+    "faixas numéricas ampliadas (SR ±0.4, BPM ±15, AR/CS ±0.5)"
+   ],
+   "query": {
+    "bpm": {
+     "min": 205.0,
+     "max": 215.0
+    },
+    "skills": [
+     "speed",
+     "streams"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "jrock",
+     "rock"
+    ],
+    "moods": [],
+    "semantic_query": "Energetic j-rock song mapped with fast streams at 210 BPM for speed training.",
+    "training_goal": "speed",
+    "limit": 20,
+    "collection_name": "210bpm speed streams jrock",
+    "rationale": "Single BPM 210 -> ±5; j-rock -> [jrock, rock]; speed streams desired as skills with speed training goal.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "q14_negation_no_streams",
+   "held_out": false,
+   "prompt": "jumps de rock japonês mas nada de streams, 5 a 6 estrelas",
+   "planner_error": null,
+   "plan_ms": 4940.0,
+   "fields": {
+    "star_rating": true,
+    "max_stream_len_lte": true,
+    "skills_include": true,
+    "avoid_include": true,
+    "genres_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 4,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Iron Petal",
+    "Ember Highway",
+    "Midnight Ronin"
+   ],
+   "relaxations": [],
+   "query": {
+    "star_rating": {
+     "min": 5.0,
+     "max": 6.0
+    },
+    "max_stream_len": 6,
+    "skills": [
+     "jumps"
+    ],
+    "avoid_skills": [
+     "streams",
+     "long_streams"
+    ],
+    "genres": [
+     "jrock",
+     "rock"
+    ],
+    "moods": [],
+    "semantic_query": "Energetic japanese rock (jrock) song mapped with jump-focused aim patterns and no streams.",
+    "limit": 20,
+    "collection_name": "5-6* jumps jrock no streams",
+    "rationale": "Pedido de jumps em rock japonês, 5 a 6 estrelas e sem streams: star rating [5, 6], skill jumps, gêneros jrock/rock, max_stream_len 6 e streams evitadas.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "h01_slang_aim",
+   "held_out": true,
+   "prompt": "quero algo pra treinar mira, nível intermediário tipo 5 estrelas e pouco, nada muito streamado, de banda japonesa",
+   "planner_error": null,
+   "plan_ms": 8956.1,
+   "fields": {
+    "star_rating": false,
+    "max_stream_len_lte": true,
+    "skills_include": true,
+    "genres_include": true,
+    "training_goal": true
+   },
+   "field_acc": 0.8,
+   "n_relevant": 3,
+   "p@5": 0.6666666666666666,
+   "recall@10": 1.0,
+   "ndcg@5": 0.8854598815714874,
+   "hit@3": true,
+   "top3": [
+    "Ember Highway",
+    "Starlit Parade",
+    "Iron Petal"
+   ],
+   "relaxations": [
+    "faixas numéricas ampliadas (SR ±0.4, BPM ±15, AR/CS ±0.5)",
+    "removidos filtros de duração/OD/CS; SR ±0.8"
+   ],
+   "query": {
+    "star_rating": {
+     "min": 4.7,
+     "max": 5.3
+    },
+    "max_stream_len": 12,
+    "skills": [
+     "jumps"
+    ],
+    "avoid_skills": [
+     "long_streams",
+     "stamina"
+    ],
+    "genres": [
+     "jrock",
+     "rock"
+    ],
+    "moods": [],
+    "semantic_query": "Japanese rock band song (jrock) with an aim-focused jump-heavy map at intermediate difficulty and few streams",
+    "training_goal": "aim",
+    "limit": 20,
+    "collection_name": "5* aim jumps jrock",
+    "rationale": "'Tipo 5 estrelas' -> 5±0.3; treinar mira -> aim/jumps; 'nada muito streamado' -> streams curtas (máx 12) evitando long_streams/stamina; banda japonesa -> jrock/rock.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "h02_en_wind_down",
+   "held_out": true,
+   "prompt": "something chill to wind down after work, nothing over 4 stars",
+   "planner_error": null,
+   "plan_ms": 4717.4,
+   "fields": {
+    "star_rating": true,
+    "moods_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 3,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Lo-fi Lantern",
+    "Sakura Drift",
+    "Glass Lullaby"
+   ],
+   "relaxations": [],
+   "query": {
+    "star_rating": {
+     "max": 4.0
+    },
+    "skills": [],
+    "avoid_skills": [],
+    "genres": [],
+    "moods": [
+     "calm"
+    ],
+    "semantic_query": "Calm, relaxing chill music for winding down after work, with easy, comfortable, low-intensity gameplay.",
+    "limit": 20,
+    "collection_name": "chill wind-down <=4*",
+    "rationale": "\"Nothing over 4 stars\" sets max SR 4 and \"chill/wind down\" maps to the calm mood; no other constraints were given.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "h03_heavy_fast",
+   "held_out": true,
+   "prompt": "me dá umas 8 músicas pesadas e rápidas pra testar velocidade de dedo",
+   "planner_error": null,
+   "plan_ms": 5230.8,
+   "fields": {
+    "limit": true,
+    "skills_include": true,
+    "genres_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Thunder Shrine",
+    "Hyperion Gate",
+    "Neon Katana"
+   ],
+   "relaxations": [],
+   "query": {
+    "skills": [
+     "speed"
+    ],
+    "avoid_skills": [],
+    "genres": [
+     "metal"
+    ],
+    "moods": [
+     "aggressive",
+     "energetic"
+    ],
+    "semantic_query": "Heavy, fast, aggressive metal songs with speed-focused maps to test finger tapping speed.",
+    "training_goal": "speed",
+    "limit": 8,
+    "collection_name": "heavy fast speed test",
+    "rationale": "\"Pesadas\" foi lido como metal com clima agressivo, e \"rápidas\" e \"velocidade de dedo\" como treino de speed; não usei filtro de star rating nem de BPM porque o pedido não trazia nenhum número.",
+    "planner": "llm:claude_code:default"
+   }
+  },
+  {
+   "id": "h04_negated_ar",
+   "held_out": true,
+   "prompt": "mapas de vocaloid sem AR alto, quero ler com calma",
+   "planner_error": null,
+   "plan_ms": 6296.0,
+   "fields": {
+    "genres_include": true,
+    "avoid_include": true
+   },
+   "field_acc": 1.0,
+   "n_relevant": 1,
+   "p@5": 1.0,
+   "recall@10": 1.0,
+   "ndcg@5": 1.0,
+   "hit@3": true,
+   "top3": [
+    "Ocean Circuit",
+    "Kitsune Rush",
+    "Ember Highway"
+   ],
+   "relaxations": [],
+   "query": {
+    "skills": [],
+    "avoid_skills": [
+     "high_ar"
+    ],
+    "genres": [
+     "vocaloid"
+    ],
+    "moods": [],
+    "semantic_query": "Vocaloid song beatmap with comfortable low-to-moderate approach rate, relaxed and easy-to-read patterns.",
+    "training_goal": "reading",
+    "limit": 20,
+    "collection_name": "vocaloid low AR calm reading",
+    "rationale": "Pedido de mapas vocaloid evitando AR alto para leitura tranquila; sem valores numéricos de AR/estrelas informados, então só penalizamos high_ar no rerank.",
+    "planner": "llm:claude_code:default"
+   }
+  }
+ ]
+}

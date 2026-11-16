@@ -1,0 +1,20 @@
+[project]
+name = "osu-semantic-recommender"
+version = "0.1.0"
+description = "Recomendador semântico e mecânico de beatmaps de osu! (LLM + busca híbrida)"
+readme = "README.md"
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[project.scripts]
+osr = "src.cli:app"
+
+[tool.setuptools]
+packages = ["src", "src.parser", "src.indexer", "src.recommender", "src.catalog"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
